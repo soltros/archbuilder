@@ -102,7 +102,7 @@ execute_command() {
         15)
             sudo pacman -Syu tailscale
             sudo systemctl enable --now tailscaled
-            sudo tailscale up
+            sudo tailscale up -qr
             echo "Configuring Tailscale..."
             ;;
         16)
