@@ -79,12 +79,7 @@ execute_command() {
             echo "Setting up Flatpak..."
             ;;
         11)
-            sudo pacman -Syu nix
-            sudo mkdir -p /etc/systemd/system/nix-daemon.service.d
-            echo "[Service]" | sudo tee /etc/systemd/system/nix-daemon.service.d/override.conf
-            echo "Environment=\"NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt\"" | sudo tee -a /etc/systemd/system/nix-daemon.service.d/override.conf
-            sudo systemctl enable nix-daemon.service
-            sudo systemctl start nix-daemon.service
+            sudo sh <(curl -L https://nixos.org/nix/install) --daemon
             echo "Setting up Nix package manager..."
             ;;
         12)
